@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric Xiao</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&display=swap');
+      html { font-size: 12px; }
+      .font-serif { font-family: 'Instrument Serif', serif; }
+      .font-sans { font-family: 'Inter', sans-serif; }
+
+      .scroll-indicator {
+        opacity: 0.4;
+        transition: opacity 0.3s ease;
+        animation: float 2.5s ease-in-out infinite;
+      }
+      .scroll-indicator.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(4px); }
+      }
+
+      @media (max-width: 1023px) {
+        .mobile-header {
+          position: sticky;
+          top: 0;
+          z-index: 50;
+          height: auto;
+          min-height: 0;
+        }
+        .header-collapsible {
+          max-height: 500px;
+          opacity: 1;
+          overflow: hidden;
+          transition: max-height 0.3s ease, opacity 0.2s ease, margin 0.3s ease, padding 0.3s ease;
+        }
+        .header-collapsed .header-collapsible {
+          max-height: 0;
+          opacity: 0;
+          margin: 0;
+          padding: 0;
+        }
+        .header-cta-mobile {
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+        .header-collapsed .header-cta-mobile {
+          opacity: 1;
+        }
+        .header-collapsed .header-cta-desktop {
+          display: none;
+        }
+      }
+    </style>
+</head>
+<body class="bg-white text-black font-sans selection:bg-black selection:text-white h-screen overflow-hidden">
+
+    <main class="flex flex-col lg:flex-row h-full">
+
+        <!-- Left Panel -->
+        <header class="mobile-header w-full lg:w-1/2 h-auto lg:h-full p-8 lg:p-16 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-black relative bg-white" role="banner">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-serif tracking-wide">Eric Xiao.</div>
+                <a href="mailto:eric@promptpm.ai" class="header-cta-mobile lg:hidden inline-flex items-center gap-2 text-sm uppercase tracking-widest hover:gap-4 transition-all">
+                    Say Hello <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <div class="header-collapsible my-auto py-8 lg:py-0">
+                <h1 class="text-6xl lg:text-8xl font-serif leading-[0.9] tracking-tight">
+                    <span class="text-gray-400">Builder,</span> product leader, investor
+                </h1>
+                <p class="mt-8 text-2xl lg:text-3xl text-gray-500 font-light leading-relaxed tracking-wide">
+                    I build products, teach AI, and invest in what I believe in.
+                </p>
+            </div>
+
+            <nav class="header-cta-desktop hidden lg:block">
+                <div class="flex items-center gap-6">
+                    <a href="https://linkedin.com/in/ericxiao" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-black transition-colors" aria-label="LinkedIn">
+                        <i data-lucide="linkedin" class="w-5 h-5" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://x.com/exiao3" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-black transition-colors" aria-label="X/Twitter">
+                        <i data-lucide="twitter" class="w-5 h-5" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:eric@promptpm.ai" class="inline-flex items-center gap-2 text-sm uppercase tracking-widest hover:gap-4 transition-all ml-auto">
+                        Say Hello <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Right Panel -->
+        <article id="scroll-panel" class="w-full lg:w-1/2 flex-1 lg:h-full overflow-y-auto p-8 lg:p-16 bg-gray-50 relative">
+
+            <div id="scroll-indicator" class="scroll-indicator fixed bottom-6 right-6 lg:right-[calc(25%-12px)] flex flex-col items-center text-gray-400">
+                <span class="text-[9px] uppercase tracking-widest mb-1">Scroll</span>
+                <i data-lucide="chevron-down" class="w-4 h-4" aria-hidden="true"></i>
+            </div>
+
+            <!-- About -->
+            <section class="bg-white p-8 rounded-sm border border-gray-100 mb-24">
+                <h2 class="text-[10px] uppercase tracking-widest text-black mb-6">About</h2>
+
+                <blockquote class="text-lg font-serif leading-relaxed mb-6 text-gray-800">
+                    "Hi, I'm Eric. I've spent 10+ years building products at companies like <a href="https://meta.com" target="_blank" class="text-blue-600 hover:text-black transition-colors">Meta</a>, <a href="https://www.adobe.com" target="_blank" class="text-blue-600 hover:text-black transition-colors">Adobe</a>, and <a href="https://fountain.com" target="_blank" class="text-blue-600 hover:text-black transition-colors">Fountain</a>. Now I'm building <a href="https://apps.apple.com/us/app/bloom-ai-for-investing/id1436348671" target="_blank" class="text-blue-600 hover:text-black transition-colors">Bloom</a> (AI for investing, 100k+ downloads), teaching <a href="https://maven.com/aman-khan/thriving-as-an-ai-pm" target="_blank" class="text-blue-600 hover:text-black transition-colors">AI courses</a>, and writing about markets on <a href="https://mycrystalball.substack.com" target="_blank" class="text-blue-600 hover:text-black transition-colors">Substack</a>."
+                </blockquote>
+
+                <div class="flex items-center gap-4 pt-4 border-t border-gray-200">
+                    <img src="profile.webp" alt="Eric Xiao" class="w-12 h-12 rounded-full object-cover grayscale opacity-80 bg-gray-200" loading="lazy">
+                    <div>
+                        <div class="text-sm font-medium">Eric Xiao</div>
+                        <div class="text-xs text-gray-500">San Francisco Bay Area</div>
+                    </div>
+                    <a href="https://www.linkedin.com/in/ericxiao" target="_blank" rel="noopener noreferrer" class="ml-auto text-gray-400 hover:text-black transition-colors">
+                        <i data-lucide="linkedin" class="w-5 h-5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Current -->
+            <section>
+                <h2 class="mb-12 text-[10px] uppercase tracking-widest text-gray-700 border-b border-gray-200 pb-4">What I'm Working On</h2>
+
+                <div class="space-y-10 mb-24">
+                    <div class="flex gap-6">
+                        <div class="text-3xl font-serif text-gray-200 leading-none">01</div>
+                        <div>
+                            <div class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Product</div>
+                            <h3 class="text-lg font-serif mb-2 text-gray-800"><a href="https://apps.apple.com/us/app/bloom-ai-for-investing/id1436348671" target="_blank" class="hover:text-blue-600 transition-colors">Bloom: AI for Investing</a></h3>
+                            <p class="text-gray-500 leading-relaxed text-sm font-light max-w-md">
+                                Research the entire stock market. Read every earnings call. Decode every chart. Never miss a trade.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="text-3xl font-serif text-gray-200 leading-none">02</div>
+                        <div>
+                            <div class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Teaching</div>
+                            <h3 class="text-lg font-serif mb-2 text-gray-800"><a href="https://maven.com/aman-khan/coding-agents-for-product-managers" target="_blank" class="hover:text-blue-600 transition-colors">AI Courses on Maven</a></h3>
+                            <p class="text-gray-500 leading-relaxed text-sm font-light max-w-md">
+                                Cursor for PMs, AI PM Playbook, and Build AI Product Sense.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="text-3xl font-serif text-gray-200 leading-none">03</div>
+                        <div>
+                            <div class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Writing</div>
+                            <h3 class="text-lg font-serif mb-2 text-gray-800"><a href="https://mycrystalball.substack.com" target="_blank" class="hover:text-blue-600 transition-colors">My Crystal Ball</a></h3>
+                            <p class="text-gray-500 leading-relaxed text-sm font-light max-w-md">
+                                Weekly analysis on markets, investing, and AI.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="text-3xl font-serif text-gray-200 leading-none">04</div>
+                        <div>
+                            <div class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Consulting</div>
+                            <h3 class="text-lg font-serif mb-2 text-gray-800"><a href="https://promptpm.ai" target="_blank" class="hover:text-blue-600 transition-colors">Prompt PM</a></h3>
+                            <p class="text-gray-500 leading-relaxed text-sm font-light max-w-md">
+                                Product leadership on demand for founders.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Track Record -->
+            <section>
+                <h2 class="mb-12 text-[10px] uppercase tracking-widest text-gray-700 border-b border-gray-200 pb-4">Track Record</h2>
+
+                <div class="space-y-12 mb-24">
+                    <div class="flex gap-6">
+                        <a href="https://apps.apple.com/us/app/bloom-ai-for-investing/id1436348671" target="_blank" class="w-16 h-16 flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center rounded-sm overflow-hidden p-2 hover:border-gray-400 transition-colors">
+                            <img src="logos/bloom_logo.png" alt="Bloom" class="w-full h-full object-contain">
+                        </a>
+                        <div>
+                            <h3 class="text-2xl font-serif mb-1"><a href="https://apps.apple.com/us/app/bloom-ai-for-investing/id1436348671" target="_blank" class="hover:text-blue-600 transition-colors">Bloom: AI for Investing</a></h3>
+                            <div class="text-xs uppercase tracking-wider text-gray-500 mb-2">Founder</div>
+                            <p class="text-sm text-gray-600 italic leading-relaxed">AI for stock picking. 100k+ downloads. Research the entire market, read every earnings call, catch every red flag.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <a href="https://arize.com" target="_blank" class="w-16 h-16 flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center rounded-sm overflow-hidden p-2 hover:border-gray-400 transition-colors">
+                            <img src="logos/arize.png" alt="Arize" class="w-full h-full object-contain">
+                        </a>
+                        <div>
+                            <h3 class="text-2xl font-serif mb-1"><a href="https://arize.com" target="_blank" class="hover:text-blue-600 transition-colors">Arize AI</a></h3>
+                            <div class="text-xs uppercase tracking-wider text-gray-500 mb-2">Product</div>
+                            <p class="text-sm text-gray-600 italic leading-relaxed">Built product features and GTM across the entire product line: experiments, playground, evals, SDK.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <a href="https://fountain.com" target="_blank" class="w-16 h-16 flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center rounded-sm overflow-hidden p-2 hover:border-gray-400 transition-colors">
+                            <img src="logos/fountaininc_logo.jpeg" alt="Fountain" class="w-full h-full object-contain">
+                        </a>
+                        <div>
+                            <h3 class="text-2xl font-serif mb-1"><a href="https://fountain.com" target="_blank" class="hover:text-blue-600 transition-colors">Fountain</a></h3>
+                            <div class="text-xs uppercase tracking-wider text-gray-500 mb-2">VP of Product</div>
+                            <p class="text-sm text-gray-600 italic leading-relaxed">Helped raise $185M and grew revenue from $6M to $24M (4x).</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <a href="https://meta.com" target="_blank" class="w-16 h-16 flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center rounded-sm overflow-hidden p-2 hover:border-gray-400 transition-colors">
+                            <img src="logos/meta.webp" alt="Meta" class="w-full h-full object-contain">
+                        </a>
+                        <div>
+                            <h3 class="text-2xl font-serif mb-1"><a href="https://meta.com" target="_blank" class="hover:text-blue-600 transition-colors">Meta</a></h3>
+                            <div class="text-xs uppercase tracking-wider text-gray-500 mb-2">Product Manager</div>
+                            <p class="text-sm text-gray-600 italic leading-relaxed">AI strategy and natural language assistant team.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <a href="https://www.adobe.com/advertising.html" target="_blank" class="w-16 h-16 flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center rounded-sm overflow-hidden p-2 hover:border-gray-400 transition-colors">
+                            <img src="logos/adobe.svg" alt="Adobe" class="w-full h-full object-contain">
+                        </a>
+                        <div>
+                            <h3 class="text-2xl font-serif mb-1"><a href="https://www.adobe.com/advertising.html" target="_blank" class="hover:text-blue-600 transition-colors">Adobe</a></h3>
+                            <div class="text-xs uppercase tracking-wider text-gray-500 mb-2">Product, Digital Advertising</div>
+                            <p class="text-sm text-gray-600 italic leading-relaxed">TubeMogul (NASDAQ: TUBE). Programmatic TV and ad quality. Acquired by Adobe.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <a href="https://berkeley.edu" target="_blank" class="w-16 h-16 flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center rounded-sm overflow-hidden p-2 hover:border-gray-400 transition-colors">
+                            <img src="logos/berkeleyengineering_logo.jpeg" alt="UC Berkeley" class="w-full h-full object-contain">
+                        </a>
+                        <div>
+                            <h3 class="text-2xl font-serif mb-1"><a href="https://berkeley.edu" target="_blank" class="hover:text-blue-600 transition-colors">UC Berkeley</a></h3>
+                            <div class="text-xs uppercase tracking-wider text-gray-500 mb-2">CS 160 Teaching Assistant</div>
+                            <p class="text-sm text-gray-600 italic leading-relaxed">Intro to Human-Computer Interaction. 4.8/5 rating.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="mt-16 pt-8 text-center">
+                <a href="mailto:eric@promptpm.ai" class="inline-block bg-black text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest hover:bg-gray-800 transition-colors">
+                    Get in Touch
+                </a>
+            </footer>
+
+        </article>
+    </main>
+
+    <script>
+      lucide.createIcons();
+      const scrollPanel = document.getElementById('scroll-panel');
+      const scrollIndicator = document.getElementById('scroll-indicator');
+      const header = document.querySelector('.mobile-header');
+
+      scrollPanel.addEventListener('scroll', function() {
+        if (scrollPanel.scrollTop > 100) {
+          scrollIndicator.classList.add('hidden');
+        } else {
+          scrollIndicator.classList.remove('hidden');
+        }
+        if (window.innerWidth < 1024) {
+          if (scrollPanel.scrollTop > 50) {
+            header.classList.add('header-collapsed');
+          } else {
+            header.classList.remove('header-collapsed');
+          }
+        }
+      }, { passive: true });
+
+      window.addEventListener('resize', function() {
+        if (window.innerWidth >= 1024) {
+          header.classList.remove('header-collapsed');
+        }
+      }, { passive: true });
+    </script>
+</body>
+</html>
